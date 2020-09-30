@@ -70,12 +70,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 jenisKelamin = tempJenisKelamin;
                 jurusan = spinner.getSelectedItem().toString();
 
+                Data data = new Data(nama, nomerInduk, tanggalLahir, jenisKelamin, jurusan);
+
                 Intent intent = new Intent(MainActivity.this, SimpanData.class);
-                intent.putExtra("nama", nama);
-                intent.putExtra("nomerInduk", nomerInduk);
-                intent.putExtra("tanggalLahir", tanggalLahir);
-                intent.putExtra("jenisKelamin", jenisKelamin);
-                intent.putExtra("jurusan", jurusan);
+//                intent.putExtra("nama", nama);
+//                intent.putExtra("nomerInduk", nomerInduk);
+//                intent.putExtra("tanggalLahir", tanggalLahir);
+//                intent.putExtra("jenisKelamin", jenisKelamin);
+//                intent.putExtra("jurusan", jurusan);
+                intent.putExtra("DATA", data);
                 startActivity(intent);
             }
         });

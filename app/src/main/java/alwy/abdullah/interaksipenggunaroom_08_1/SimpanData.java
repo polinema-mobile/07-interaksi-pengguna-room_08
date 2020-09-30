@@ -8,8 +8,7 @@ import android.widget.TextView;
 
 public class SimpanData extends AppCompatActivity {
     TextView txtNama, txtNomerInduk, txtTanggalLahir, txtJenisKelamin, txtJurusan;
-    String nama, nomerInduk,tanggalLahir, jenisKelamin, jurusan;
-
+    String nama, nomerInduk, tanggalLahir, jenisKelamin, jurusan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +21,17 @@ public class SimpanData extends AppCompatActivity {
         txtJurusan = findViewById(R.id.tvJurusan);
 
         Intent intent = getIntent();
-        txtNama.setText(intent.getExtras().getString("nama"));
-        txtNomerInduk.setText(intent.getExtras().getString("nomerInduk"));
-        txtTanggalLahir.setText(intent.getExtras().getString("tanggalLahir"));
-        txtJenisKelamin.setText(intent.getExtras().getString("jenisKelamin"));
-        txtJurusan.setText(intent.getExtras().getString("jurusan"));
+        Data data = intent.getParcelableExtra("DATA");
+        nama = data.getNama();
+        nomerInduk = data.getNomerInduk();
+        tanggalLahir = data.getTanggalLahir();
+        jenisKelamin = data.getJenisKelamin();
+        jurusan = data.getJurusan();
+
+        txtNama.setText(nama);
+        txtNomerInduk.setText(nomerInduk);
+        txtTanggalLahir.setText(tanggalLahir);
+        txtJenisKelamin.setText(jenisKelamin);
+        txtJurusan.setText(jurusan);
     }
 }
